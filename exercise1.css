@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:wght@300;400;500&family=DM+Sans:wght@300;400;500;700&display=swap');
 
-*,::after,::before {
-    margin : 0;
-    padding : 0;
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 html {
-    font-size : 62.5%;
+    font-size: 62.5%;
 }
 
 :root {
@@ -38,12 +40,62 @@ html {
     --font-ui:          'DM Sans', Arial, sans-serif;
 }
 
-.logo-text {
-    font-family: var(--font-display);
-    
-}
+
+/* ########### NAVBAR ########### */
 
 .navbar {
-    width : 100%;
+    width: 100%;
     background-color: var(--bg-dark);
+    padding: 1.2rem 0;
+    border-bottom: 3px solid var(--accent);
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-text {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.logo-text span:last-child {
+    color: var(--accent);
+}
+
+.menu-items {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+}
+
+.menu-items a {
+    font-family: var(--font-ui);
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--accent);
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.menu-items a:hover {
+    background-color: var(--accent);
+    color: var(--text-on-dark);
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    width: 90%;
 }
