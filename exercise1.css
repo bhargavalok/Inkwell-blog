@@ -45,7 +45,7 @@ body {
 }
 
 
-/* ########### NAVBAR ########### */
+                        /* ########### NAVBAR ########### */
 
 .navbar {
     width: 100%;
@@ -105,7 +105,7 @@ body {
 }
 
 
-/* ########### SHOWCASE ########### */
+                    /* ########### SHOWCASE ########### */
 
 .showcase {
     width: 100%;
@@ -176,7 +176,7 @@ body {
 }
 
 
-/* ########### BODY + SIDEBAR ########### */
+                        /* ########### BODY + SIDEBAR ########### */
 
 .body-section {
     padding: 5rem 0;
@@ -185,19 +185,18 @@ body {
 .body-container {
     display: flex;
     gap: 3rem;
-    align-items: stretch;       /* sidebar stretches full height */
+    align-items: stretch;      
 }
 
 .sidebar-section {
     flex: 0 0 220px;
     background-color: var(--bg-subtle);
     border-radius: 12px;
-    /* NO position, NO align-self here */
 }
 
 .sidebar-container {
-    position: sticky;           /* sticks within sidebar-section height */
-    top: 0;                     /* locks immediately, no vibration */
+    position: sticky;          
+    top: 0;                     
     padding: 2.4rem;
 }
 
@@ -272,14 +271,14 @@ body {
     border-color: var(--accent);
 }
 
-/* ########### CONTENT SECTION ########### */
+                /* ########### CONTENT SECTION ########### */
 
 .content-section {
     flex: 1;
     min-width: 0;
     display: flex;
     flex-direction: column;
-    gap: 2rem;                  /* spacing between article, categories, gallery */
+    gap: 2rem;                 
 }
 
 .article-card {
@@ -397,7 +396,7 @@ body {
     border-color: var(--accent-dark);
 }
 
-/* ########### CATEGORY SECTION ########### */
+                    /* ########### CATEGORY SECTION ########### */
 
 .categories-container {
     display: grid;
@@ -475,7 +474,7 @@ body {
     line-height: 1.7;
 }
 
-/* ########### PHOTO GALLERY ########### */
+                /* ########### PHOTO GALLERY  STYLING ! ########### */
 
 .photo-gallery {
     padding: 3rem 0 2rem;
@@ -496,43 +495,36 @@ body {
     gap: 1rem;
 }
 
-/* img 1 — Large feature (spans 2 cols × 2 rows) */
+
 .gallery-container .gallery-item:nth-child(1) {
     grid-column: 1 / 3;
     grid-row: 1 / 3;
 }
 
-/* img 2 — Top right */
 .gallery-container .gallery-item:nth-child(2) {
     grid-column: 3 / 4;
     grid-row: 1 / 2;
 }
 
-/* img 3 — Middle right */
 .gallery-container .gallery-item:nth-child(3) {
     grid-column: 3 / 4;
     grid-row: 2 / 3;
 }
 
-/* img 4 — Bottom left */
 .gallery-container .gallery-item:nth-child(4) {
     grid-column: 1 / 3;
     grid-row: 3 / 4;
 }
 
-/* img 5 — Bottom center */
 .gallery-container .gallery-item:nth-child(5) {
     grid-column: 3 / 4;
     grid-row: 3 / 4;
 }
 
-/* img 6 — Bottom right */
 .gallery-container .gallery-item:nth-child(6) {
     grid-column: 1 / 2;
     grid-row: 4 / 5;
 }
-
-/* ---- Gallery Item (hover wrapper) ---- */
 
 .gallery-item {
     position: relative;
@@ -540,7 +532,7 @@ body {
     border-radius: 8px;
 }
 
-/* Dark overlay on hover */
+
 .gallery-item::after {
     content: '';
     position: absolute;
@@ -560,7 +552,7 @@ body {
     transition: transform 0.4s;
 }
 
-/* Caption text */
+
 .gallery-caption {
     position: absolute;
     bottom: 1.4rem;
@@ -572,19 +564,166 @@ body {
     opacity: 0;
     transform: translateY(8px);
     transition: opacity 0.3s, transform 0.3s;
-    z-index: 2;            /* sits above the dark overlay */
+    z-index: 2;           
 }
 
-/* Hover states */
-.gallery-item:hover::after {
-    opacity: 1;
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+            /* ########### GET IN TOUCH STYLING ########### */
+.getintouch {
+    background-color: var(--bg-dark);
+    border-radius: 12px;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
 }
 
-.gallery-item:hover img {
-    transform: scale(1.05);
+.getintouch-container {
+    padding: 3.5rem 3rem;
 }
 
-.gallery-item:hover .gallery-caption {
-    opacity: 1;
+.getintouch label[data-required]::after {
+    content: " *";
+    color: #e05c5c;
+    font-size: 1.4rem;
+}
+
+.getintouch-container h3 {
+    font-family: var(--font-display);
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: var(--text-on-dark);
+    margin-bottom: 0.8rem;
+}
+
+.getintouch-line {
+    font-family: var(--font-ui);
+    font-size: 1.35rem;
+    letter-spacing: 0.05rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+}
+
+
+.form-class {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    flex: 1;
+}
+
+.getintouch label {
+    font-family: var(--font-ui);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.getintouch input,
+.getintouch select,
+.getintouch textarea {
+    width: 100%;
+    background-color: #2A2A2A;
+    color: var(--text-on-dark);
+    font-family: var(--font-ui);
+    font-size: 1.4rem;
+    border: 1px solid var(--border-dark);
+    border-radius: 6px;
+    padding: 1.2rem 1.4rem;
+    outline: none;
+    transition: border-color 0.2s, background-color 0.2s;
+    appearance: none;
+}
+
+.getintouch input::placeholder,
+.getintouch textarea::placeholder {
+    color: #555;
+}
+
+.getintouch input:focus,
+.getintouch select:focus,
+.getintouch textarea:focus {
+    border-color: var(--accent);
+    background-color: #313131;
+}
+
+.getintouch textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.getintouch select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888880' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1.4rem center;
+    padding-right: 3.5rem;
+}
+
+
+.getintouch select option {
+    background-color: #2A2A2A;
+    color: var(--text-on-dark);
+}
+
+.form-row:has(textarea) {
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.form-row:has(textarea) label {
+    font-family: var(--font-ui);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: var(--accent);
+    color: var(--text-on-dark);
+    font-family: var(--font-ui);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 6px;
+    padding: 1.6rem;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.15s;
+}
+
+.btn-submit:hover {
+    background-color: var(--accent-dark);
+    transform: translateY(-2px);
+}
+
+.btn-submit:active {
     transform: translateY(0);
 }
+
