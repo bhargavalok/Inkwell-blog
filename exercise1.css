@@ -52,6 +52,12 @@ body {
     background-color: var(--bg-dark);
     padding: 1.2rem 0rem;
     border-bottom: 3px solid var(--accent);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(28, 28, 28, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .navbar-container {
@@ -96,6 +102,22 @@ body {
 .menu-items a:hover {
     background-color: var(--accent);
     color: var(--text-on-dark);
+}
+
+.menu-items a.active {
+    color: var(--text-on-dark);
+    position: relative;
+}
+
+.menu-items a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;          
+    left: 1.2rem;         
+    right: 1.2rem;
+    height: 2px;
+    background-color: var(--accent);
+    border-radius: 2px;
 }
 
 .container {
