@@ -465,6 +465,34 @@ body {
 }
 
                     /* ########### CATEGORY SECTION ########### */
+.section-divider {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+.section-divider h3 {
+    font-family: var(--font-ui);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.section-divider::before,
+.section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: var(--border);
+}
+
+.section-divider::before {
+    display: none; 
+}
 
 .categories-container {
     display: grid;
@@ -474,72 +502,154 @@ body {
 
 .category-card {
     background-color: var(--bg-surface);
-    border-radius: 12px;
+    border-radius: 14px;
     overflow: hidden;
     border: 1px solid var(--border);
-    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .category-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(181, 69, 27, 0.08);
 }
 
-.category-card img {
-    height: 200px;
+.card-img-wrap {
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.card-img-wrap img {
+    display: block;
     width: 100%;
+    height: 220px;
     object-fit: cover;
+    transition: transform 0.45s ease;
 }
 
-.inner-text {
+.category-card:hover .card-img-wrap img {
+    transform: scale(1.06);
+}
+
+.card-img-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.55) 0%,
+        rgba(0, 0, 0, 0.15) 40%,
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+.card-img-overlay {
+    position: absolute;
+    bottom: 1.2rem;
+    left: 1.4rem;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin: 0.8rem 0;
-}
-
-.category-card .inner-text,
-.category-card h2,
-.category-card p {
-    padding: 0 1.5rem;
-}
-
-.category-card p {
-    padding-bottom: 1.5rem;
+    gap: 0.8rem;
+    z-index: 2;
 }
 
 .post-category {
     font-family: var(--font-ui);
-    font-size: 1.1rem;
+    font-size: 1.0rem;
     font-weight: 700;
-    color: var(--accent);
+    color: #ffffff;
     text-transform: uppercase;
-    letter-spacing: 0.8px;
-    background-color: var(--accent-light);
-    padding: 0.3rem 0.8rem;
+    letter-spacing: 1px;
+    background-color: var(--accent);
+    padding: 0.35rem 0.85rem;
     border-radius: 4px;
 }
 
 .post-date {
     font-family: var(--font-ui);
-    font-size: 1.2rem;
-    color: var(--text-muted);
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.8rem 1.8rem 1.4rem;
+    gap: 0.8rem;
 }
 
 .category-card h2 {
     font-family: var(--font-display);
-    font-size: 1.6rem;
+    font-size: 1.65rem;
     font-weight: 600;
     color: var(--text-heading);
-    line-height: 1.3;
-    margin-bottom: 0.8rem;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .category-card p {
     font-family: var(--font-body);
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     color: var(--text-body);
     line-height: 1.7;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+}
+
+.card-read-time {
+    font-family: var(--font-ui);
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.card-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-ui);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.4px;
+    transition: gap 0.18s, color 0.18s;
+}
+
+.card-read-more::after {
+    content: '→';
+    transition: transform 0.18s;
+}
+
+.category-card:hover .card-read-more {
+    color: var(--accent-dark);
+    gap: 0.8rem;
+}
+
+.category-card:hover .card-read-more::after {
+    transform: translateX(4px);
 }
 
                 /* ########### PHOTO GALLERY  STYLING ! ########### */
