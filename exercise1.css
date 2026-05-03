@@ -658,18 +658,46 @@ body {
     padding: 3rem 0 2rem;
 }
 
+
+.gallery-header {
+    margin-bottom: 2rem;
+}
+
+.gallery-label {
+    font-family: var(--font-ui);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+}
+
 .photo-gallery h3 {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 600;
     color: var(--text-heading);
-    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 1.2rem;
+}
+
+
+.photo-gallery h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 48px;
+    height: 2px;
+    background-color: var(--accent);
+    border-radius: 2px;
 }
 
 .gallery-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 240px 240px 200px 200px;
+    grid-template-rows: 240px 240px 220px 200px;
     gap: 1rem;
 }
 
@@ -678,88 +706,116 @@ body {
     grid-column: 1 / 3;
     grid-row: 1 / 3;
 }
-
 .gallery-container .gallery-item:nth-child(2) {
     grid-column: 3 / 4;
     grid-row: 1 / 2;
 }
-
 .gallery-container .gallery-item:nth-child(3) {
     grid-column: 3 / 4;
     grid-row: 2 / 3;
 }
-
 .gallery-container .gallery-item:nth-child(4) {
     grid-column: 1 / 3;
     grid-row: 3 / 4;
 }
-
 .gallery-container .gallery-item:nth-child(5) {
     grid-column: 3 / 4;
     grid-row: 3 / 4;
 }
 
 .gallery-container .gallery-item:nth-child(6) {
-    grid-column: 1 / 2;
+    grid-column: 1 / 4;
     grid-row: 4 / 5;
 }
+
 
 .gallery-item {
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 10px;
+    margin: 0;                              
+    box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+    cursor: pointer;
 }
-
 
 .gallery-item::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.0) 30%,      
+        rgba(0, 0, 0, 0.65) 100%      
+    );
     opacity: 0;
-    transition: opacity 0.3s;
-    border-radius: 8px;
+    transition: opacity 0.35s ease;
+    border-radius: 10px;
     z-index: 1;
 }
+
 
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s;
+    transition: transform 0.5s ease;
+}
+
+
+.gallery-num {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.4rem;
+    font-family: var(--font-ui);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.85);
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 3;
 }
 
 
 .gallery-caption {
     position: absolute;
-    bottom: 1.4rem;
-    left: 1.4rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 1.6rem 1.4rem;          
     color: #ffffff;
     font-family: var(--font-ui);
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 500;
+    border-top: 2px solid var(--accent);  
     opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.3s, transform 0.3s;
-    z-index: 2;           
+    transform: translateY(10px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    z-index: 2;
 }
 
 
-        .gallery-item:hover::after {
-            opacity: 1;
-        }
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-        .gallery-item:hover .gallery-caption {
-            opacity: 1;
-            transform: translateY(0);
-        }
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.06);
+}
+
+.gallery-item:hover .gallery-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-item:hover .gallery-num {
+    opacity: 1;
+    transform: translateY(0);
+}
 
             /* ########### GET IN TOUCH STYLING ########### */
-/* ########### GET IN TOUCH STYLING ########### */
-
 .getintouch {
     position: relative;
     background-color: #161616;
