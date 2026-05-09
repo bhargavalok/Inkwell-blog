@@ -132,6 +132,41 @@ body {
     width: 90%;
 }
 
+.menu-toggle-input { display: none; }
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px 4px;
+    z-index: 200;
+    flex-shrink: 0;
+}
+
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--accent);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.25s ease, width 0.25s ease;
+    transform-origin: center;
+}
+
+.menu-toggle-input:checked ~ .hamburger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.menu-toggle-input:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+    width: 0;
+}
+.menu-toggle-input:checked ~ .hamburger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
     /* ########### SHOWCASE ########### */
 .showcase {
     width: 100%;
@@ -1484,7 +1519,6 @@ body {
     transform: translateX(4px);
 }
 
-/* ---- Footer Bottom Bar ---- */
 .footer-bottom {
     display: flex;
     align-items: center;
@@ -1516,14 +1550,22 @@ body {
     font-weight: 600;
 }
 
+                                        /* ################ MEDIA QUERIES !  ##################### */
 
-        /* ======= INKWELL — RESPONSIVE MEDIA QUERIES ======= */
 
-
-/* ================================================================
-    1100px — Large Tablet / Small Laptop
-================================================================ */
+                            /* Large Tablet / Small Laptop */
 @media (max-width: 1100px) {
+    .getintouch-inner {
+        gap: 4rem;
+    }
+
+    .getintouch-container {
+        padding: 4rem 3rem;
+    }
+
+    .gallery-container {
+        grid-template-rows: 200px 200px 180px 180px;
+    }
 
     .footer-grid {
         gap: 2rem 3rem;
@@ -1532,33 +1574,15 @@ body {
     .footer-container {
         padding: 4rem 0 0;
     }
-
-    .getintouch-info {
-        flex: 0 0 260px;
-        padding: 3.5rem 2.5rem;
-    }
-
-    .getintouch-form {
-        padding: 3.5rem 2.5rem;
-    }
-
-    .gallery-container {
-        grid-template-rows: 200px 200px 180px 180px;
-    }
 }
 
 
-/* ================================================================
-    900px — Tablet Landscape
-================================================================ */
+                                /* tablet Landscape*/
 @media (max-width: 900px) {
-
-    /* --- Sidebar narrows slightly --- */
     .sidebar-section {
-        flex: 0 0 230px;
+        flex: 0 0 240px;
     }
 
-    /* --- Hero --- */
     .showcase {
         min-height: 80vh;
     }
@@ -1567,20 +1591,34 @@ body {
         font-size: clamp(3rem, 6vw, 5rem);
     }
 
+    .getintouch-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
 
-    .categories-container {
-        gap: 1.5rem;
+    .getintouch-container {
+        padding: 4rem 3rem;
+    }
+
+    .getintouch-info {
+        padding-top: 0;
     }
 
     .gallery-container {
         grid-template-rows: 190px 190px 170px 160px;
     }
 
+
+    .categories-container {
+        gap: 1.5rem;
+    }
+
+
     .newsletter-inner {
         flex-direction: column;
         text-align: center;
-        gap: 2rem;
         align-items: center;
+        gap: 2rem;
     }
 
     .newsletter-form {
@@ -1593,23 +1631,14 @@ body {
         width: auto;
     }
 
-    .getintouch-info {
-        flex: 0 0 220px;
-        padding: 3rem 2rem;
-    }
-
-    .getintouch-form {
-        padding: 3rem 2rem;
+    .footer-grid {
+        gap: 2rem 3rem;
     }
 }
 
 
-/* ================================================================
-    768px — Tablet Portrait  ← MAJOR BREAKPOINT
-================================================================ */
+                    /* ########## Tablet Portrait  ########## */ 
 @media (max-width: 768px) {
-
-
     .menu-items {
         gap: 0.2rem;
     }
@@ -1619,7 +1648,6 @@ body {
         padding: 0.5rem 0.9rem;
         letter-spacing: 0.8px;
     }
-
 
     .showcase {
         min-height: 85vh;
@@ -1652,13 +1680,14 @@ body {
         flex: none;
         width: 100%;
         border-radius: 12px;
-        border-right: 1px solid var(--border);   
+        border-right: 1px solid var(--border);
     }
 
     .sidebar-container {
         position: static;
         padding: 2rem;
     }
+
 
     .sidebar-container ul {
         display: grid;
@@ -1667,10 +1696,6 @@ body {
 
     .sidebar-container ul li {
         border-bottom: 1px solid var(--border);
-    }
-
-    .sidebar-tags {
-        margin-top: 1rem;
     }
 
     .body-divider {
@@ -1717,22 +1742,8 @@ body {
         grid-row: auto;
     }
 
-
     .getintouch-container {
-        flex-direction: column;
-    }
-
-    .getintouch-info {
-        flex: none;
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid var(--border-dark);
-        padding: 3rem 2.5rem;
-        border-radius: 0;
-    }
-
-    .getintouch-form {
-        padding: 3rem 2.5rem;
+        padding: 3.5rem 2.5rem;
     }
 
     .footer-grid {
@@ -1745,25 +1756,74 @@ body {
 }
 
 
-/* ================================================================
-    600px — Large Mobile
-================================================================ */
+                            /*      Large Mobile + HAMBURGER MENU ACTIVATES      */
 @media (max-width: 600px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .menu-items {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(8, 8, 8, 0.97);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        flex-direction: column;
+        gap: 0;
+        padding: 0.8rem 0 1.4rem;
+        border-bottom: 2px solid var(--accent);
+        z-index: 150;
+    }
+
+    .menu-items li {
+        width: 100%;
+    }
+
+    .menu-items a {
+        display: block;
+        width: 100%;
+        padding: 1.2rem 2.5rem;
+        font-size: 1.3rem;
+        letter-spacing: 1.2px;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .menu-items a:hover,
+    .menu-items a.active {
+        background-color: rgba(181, 69, 27, 0.12);
+        color: var(--accent);
+    }
+
+    .menu-items a.active::after {
+        display: none;   
+    }
+
+    .menu-toggle-input:checked ~ .menu-items {
+        display: flex;
+    }
+
+    .navbar {
+        position: sticky;
+        top: 0;
+    }
+
+    .navbar-container {
+        position: relative;
+    }
 
 
     .logo-text {
         font-size: 2rem;
     }
 
-    .menu-items a {
-        font-size: 1rem;
-        padding: 0.45rem 0.65rem;
-        letter-spacing: 0.5px;
-    }
-
 
     .showcase {
-        min-height: 100svh;            
+        min-height: 100svh;
     }
 
     .showcase-container {
@@ -1788,6 +1848,7 @@ body {
         font-size: 1.35rem;
         margin-bottom: 2rem;
     }
+
 
     .showcase-actions {
         flex-direction: column;
@@ -1815,6 +1876,7 @@ body {
         font-size: 1rem;
     }
 
+
     .body-section {
         padding: 3rem 0;
     }
@@ -1840,10 +1902,12 @@ body {
         font-size: 1.35rem;
     }
 
+
     .categories-container {
         grid-template-columns: 1fr;
         gap: 1.4rem;
     }
+
 
     .gallery-container {
         grid-template-rows: repeat(3, 180px);
@@ -1854,16 +1918,13 @@ body {
         font-size: 1.2rem;
     }
 
-    .getintouch-info {
-        padding: 2.5rem 1.8rem;
+
+    .getintouch-container {
+        padding: 3rem 2rem;
     }
 
     .getintouch-info h3 {
-        font-size: 2.4rem;
-    }
-
-    .getintouch-form {
-        padding: 2.5rem 1.8rem;
+        font-size: 2.6rem;
     }
 
     .form-row {
@@ -1872,8 +1933,9 @@ body {
     }
 
     .contact-details {
-        gap: 1.5rem;
+        gap: 1.4rem;
     }
+
 
     .footer-grid {
         flex-direction: column;
@@ -1884,10 +1946,6 @@ body {
         flex: none;
     }
 
-    .footer-col {
-        min-width: 0;
-    }
-
     .footer-bottom {
         flex-direction: column;
         align-items: flex-start;
@@ -1895,13 +1953,13 @@ body {
         padding-bottom: 2.5rem;
     }
 
+
     .footer-newsletter {
         padding: 2rem 0;
     }
 
     .newsletter-form {
         width: 100%;
-        max-width: 100%;
         flex-direction: column;
     }
 
@@ -1919,25 +1977,16 @@ body {
 }
 
 
-/* ================================================================
-    480px — Standard Mobile
-================================================================ */
+                                    /*  ####### Standard Mobile #########   */
 @media (max-width: 480px) {
-
-    .menu-items a {
-        font-size: 0.95rem;
-        padding: 0.4rem 0.5rem;
-    }
-
-
     .showcase-stats {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 1rem 1.5rem;
+        gap: 1rem 2rem;
     }
 
     .stat-divider {
-        display: none;                
+        display: none;
     }
 
     .stat-item {
@@ -1946,15 +1995,16 @@ body {
         align-items: baseline;
     }
 
-
     .gallery-container {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(6, 200px);
     }
 
+
     .sidebar-container ul {
         grid-template-columns: 1fr;
     }
+
 
     .article-body h2 {
         font-size: 1.9rem;
@@ -1965,9 +2015,11 @@ body {
         padding: 1.2rem 1.4rem;
     }
 
+
     .photo-gallery h3 {
         font-size: 1.8rem;
     }
+
 
     .footer-socials {
         gap: 0.8rem;
@@ -1977,21 +2029,30 @@ body {
         width: 34px;
         height: 34px;
     }
+
+
+    .getintouch-container {
+        padding: 2.5rem 1.6rem;
+    }
+
+    .getintouch-info h3 {
+        font-size: 2.2rem;
+    }
+
+    .getintouch-eyebrow {
+        font-size: 1rem;
+    }
+
+    .getintouch-form {
+        padding: 2rem 1.6rem;
+    }
 }
 
 
-/* ================================================================
-    360px — Very Small Mobile (e.g. Galaxy A series, older phones)
-================================================================ */
+                    /* ################## Small Mobile ############### */
 @media (max-width: 360px) {
-
     .logo-text {
         font-size: 1.8rem;
-    }
-
-    .menu-items a {
-        font-size: 0.85rem;
-        padding: 0.35rem 0.4rem;
     }
 
     .title {
@@ -2015,23 +2076,26 @@ body {
     .gallery-container {
         grid-template-rows: repeat(6, 170px);
     }
+
+    .getintouch-container {
+        padding: 2rem 1.4rem;
+    }
 }
 
 
-/* ================================================================
-    ORIENTATION QUERIES
-================================================================ */
-
-/* --- Phone in landscape (wide but very short) --- */
+                                    /* ORIENTATION — Phone Landscape (wide + very short) */
 @media (orientation: landscape) and (max-height: 500px) {
+    .navbar {
+        padding: 0.7rem 0;
+    }
+
     .showcase {
         min-height: auto;
-        padding: 2rem 0;
     }
 
     .showcase-container {
         padding: 3rem 2rem 3.5rem;
-        gap: 0;
+        min-height: auto;
     }
 
     .est-badge {
@@ -2048,6 +2112,7 @@ body {
         margin-bottom: 1.5rem;
     }
 
+
     .showcase-actions {
         flex-direction: row;
         width: auto;
@@ -2058,13 +2123,9 @@ body {
         width: auto;
     }
 
+
     .scroll-indicator {
         display: none;
-    }
-
-
-    .navbar {
-        padding: 0.8rem 0;
     }
 
     .body-section {
@@ -2072,14 +2133,13 @@ body {
     }
 }
 
-/* --- Tablet in landscape: keep sidebar layout, just adjust sizes --- */
-@media (orientation: landscape) and (min-width: 769px) and (max-width: 1024px) {
 
+                    /* #################  ORIENTATION — Tablet Landscape (restore sidebar layout)  ################# */
+@media (orientation: landscape) and (min-width: 769px) and (max-width: 1024px) {
     .showcase {
         min-height: 80vh;
     }
 
-    
     .body-container {
         flex-direction: row;
     }
@@ -2089,12 +2149,12 @@ body {
     }
 
     .body-divider {
-        display: block;           
+        display: block;
     }
 
     .content-section {
-        max-width: none;
         flex: 1;
+        max-width: none;
     }
 
     .sidebar-container {
@@ -2105,5 +2165,21 @@ body {
     .gallery-container {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 200px);
+    }
+}
+
+
+/*    ############# ACCESSIBILITY — Reduce motion for users who prefer it #################### */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
     }
 }
