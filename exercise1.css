@@ -1033,15 +1033,12 @@ body {
     padding: 5rem 4rem;
 }
 
-/* Two-column grid: info left, form right */
 .getintouch-inner {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 6rem;
     align-items: start;
 }
-
-/* ---------- LEFT INFO PANEL ---------- */
 
 .getintouch-info {
     padding-top: 0.5rem;
@@ -1078,7 +1075,6 @@ body {
     margin-bottom: 3rem;
 }
 
-/* Contact detail items */
 .contact-details {
     list-style: none;
     display: flex;
@@ -1128,7 +1124,6 @@ body {
     font-weight: 500;
 }
 
-/* Green dot for availability */
 .contact-value--available::before {
     content: '';
     display: inline-block;
@@ -1141,7 +1136,7 @@ body {
     box-shadow: 0 0 6px rgba(76, 175, 118, 0.6);
 }
 
-/* Decorative quote block */
+
 .getintouch-quote {
     border-left: 2px solid rgba(181, 69, 27, 0.5);
     padding: 1rem 1.6rem;
@@ -1155,8 +1150,6 @@ body {
     line-height: 1.7;
 }
 
-/* ---------- RIGHT FORM PANEL ---------- */
-
 .getintouch-form {
     background-color: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.07);
@@ -1164,7 +1157,6 @@ body {
     padding: 3rem;
 }
 
-/* Required field asterisk */
 .getintouch label[data-required]::after {
     content: " *";
     color: #e05c5c;
@@ -1220,7 +1212,6 @@ body {
     color: rgba(255, 255, 255, 0.2);
 }
 
-/* Focus glow */
 .getintouch input:focus,
 .getintouch select:focus,
 .getintouch textarea:focus {
@@ -1229,7 +1220,6 @@ body {
     box-shadow: 0 0 0 3px rgba(181, 69, 27, 0.15);
 }
 
-/* Validation states */
 .getintouch input:not(:placeholder-shown):invalid,
 .getintouch select:invalid,
 .getintouch textarea:not(:placeholder-shown):invalid {
@@ -1260,7 +1250,6 @@ body {
     color: var(--text-on-dark);
 }
 
-/* Submit button with arrow icon */
 .btn-submit {
     display: flex;
     align-items: center;
@@ -1303,8 +1292,6 @@ body {
 }
 
                 /* ############### FOOTER STYLING #################  */
-
-
 .footer {
     background-color: var(--bg-dark);
     margin-top: 2rem;
@@ -1551,7 +1538,6 @@ body {
 }
 
                                         /* ################ MEDIA QUERIES !  ##################### */
-
 
                             /* Large Tablet / Small Laptop */
 @media (max-width: 1100px) {
