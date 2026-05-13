@@ -81,5 +81,4 @@ These aren't tricks. They're the fundamentals that separate websites that feel c
 [Instagram](https://www.instagram.com/alok_bhargav_/) 
 [Twitter/X](https://x.com/Alok_bhargav_)
 
-*Built slowly. Written honestly.*
 
